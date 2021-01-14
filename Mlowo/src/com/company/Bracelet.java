@@ -3,9 +3,9 @@ package com.company;
 import java.awt.*;
 
 public class Bracelet {
-    private int braceletId;
+    private final int braceletId;
     private boolean isActive;
-    private Color color;
+    private final Color color;
 
     public Bracelet(int braceletId, boolean isActive, Color color) {
         this.braceletId = braceletId;
