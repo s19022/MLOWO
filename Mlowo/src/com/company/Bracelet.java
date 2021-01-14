@@ -5,9 +5,10 @@ import java.util.UUID;
 import java.util.*;
 
 public class Bracelet {
-    private String braceletId;
+
+    private final String braceletId;
     private boolean isActive;
-    private Color color; 
+    private final Color color; 
 
     private static HashMap<String, Bracelet> bracelets = new HashMap<String, Bracelet>();
 
