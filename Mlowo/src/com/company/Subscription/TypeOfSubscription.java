@@ -1,4 +1,4 @@
-package com.company;
+package com.company.Subscription;
 
 public enum TypeOfSubscription {
     TYPE1,

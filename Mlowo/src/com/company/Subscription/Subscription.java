@@ -1,7 +1,8 @@
-package com.company;
+package com.company.Subscription;
+
+import com.company.Client;
 
 import java.time.LocalDateTime;
-import java.util.HashMap;
 import java.util.UUID;
 
 public class Subscription {
@@ -63,16 +64,14 @@ public class Subscription {
     }
 
     public static Subscription getInstance(TypeOfSubscription typeOfSubscription, double price,
-                                           LocalDateTime startDate, LocalDateTime expireDate, Client client) throws SubscriptionInitializationException{
+                                           LocalDateTime startDate, LocalDateTime expireDate, Client client) throws SubscriptionInitializationException {
         if (startDate == null) throw new SubscriptionInitializationException("start date is null");
         if (expireDate == null) throw new SubscriptionInitializationException("expire date is null");
         if (expireDate.isBefore(startDate)) throw new SubscriptionInitializationException("expire date is smaller than start date");
         if (price < 0) throw new SubscriptionInitializationException("price should be a non-negative number");
         if (typeOfSubscription == null) throw new SubscriptionInitializationException("type of subscription is null");
         if (client == null) throw new SubscriptionInitializationException("Client is null");
-
-
-
+        
         return new Subscription(typeOfSubscription, (long)(price * 100), startDate, expireDate, client);
     }
 }
