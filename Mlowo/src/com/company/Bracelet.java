@@ -10,23 +10,15 @@ public class Bracelet {
     private boolean isActive;
     private final Color color; 
 
-    private static HashMap<String, Bracelet> bracelets = new HashMap<String, Bracelet>();
+    private static HashMap<String, Bracelet> bracelets = new HashMap<>();
 
     public Bracelet(boolean isActive, Color color) {
         this.isActive = isActive;
         this.color = color;
 
-        String uniqueKey = UUID.randomUUID().toString();
-        switch(bracelets.containsKey(uniqueKey) + "")
-        {
-            case "false":
-                    this.braceletId = uniqueKey;
-                bracelets.put(uniqueKey, this);
-            break;
-            case "true": // is it even possible???, probably not
-                System.out.println("Generated id is not unique");
-            break;
-        }
+        braceletId = UUID.randomUUID().toString();
+
+        bracelets.put(braceletId, this);
     }
 
     public static void showAllBracelets()
