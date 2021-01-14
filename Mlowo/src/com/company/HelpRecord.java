@@ -1,30 +1,23 @@
 package com.company;
 
-import java.sql.Time;
-import java.util.Date;
+import java.time.LocalDateTime;
 
 public class HelpRecord {
-    private Date date;
-    private Time time;
-    private boolean outcome;
-    private String location;
-    public HelpRecord(Date date, Time time, boolean outcome, String location) {
-        this.date = date;
-        this.time = time;
+    private Outcome outcome;
+    private final String location;
+    private final LocalDateTime dateTime;
+    public HelpRecord( LocalDateTime dateTime, Outcome outcome, String location) {
+        this.dateTime = dateTime;
         this.outcome = outcome;
         this.location = location;
     }
 
-    public Date getDate() {
-        return date;
-    }
-
-    public Time getTime() {
-        return time;
-    }
-
-    public boolean isOutcome() {
+    private Outcome getOutcome(){
         return outcome;
+    }
+
+    public LocalDateTime getDateTime() {
+        return dateTime;
     }
 
     public String getLocation() {
