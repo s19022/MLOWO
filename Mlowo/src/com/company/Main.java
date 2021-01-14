@@ -10,6 +10,6 @@ public class Main {
         Bracelet b1 = new Bracelet(true, new Color(200, 255, 255));
         Bracelet b2 = new Bracelet(true, new Color(200, 255, 255));
 
-        Bracelet.showAllBracelets();
+        Bracelet.showAllBracelets();    
     }
 }
