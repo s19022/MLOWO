@@ -2,9 +2,9 @@ package com.company;
 
 import com.company.Subscription.Subscription;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.LinkedList;
 import java.util.List;
 
 public class Client extends Person {
@@ -16,8 +16,9 @@ public class Client extends Person {
     private List<Bracelet> bracelets = new ArrayList<>();
     private List<Subscription> subscriptions = new ArrayList<>();
 
-    public Client(String firstName, String lastName, Date dateOfBirth, String email, String phoneNumber, String password) {
+    public Client(String firstName, String lastName, LocalDateTime dateOfBirth, String email, String phoneNumber, String password, String homeAddress) {
         super(firstName, lastName, dateOfBirth, email, phoneNumber, password);
+        this.homeAddress = homeAddress;
     }
     public void pressHelpMeButton(){}
     public void bookHealthTest(){}

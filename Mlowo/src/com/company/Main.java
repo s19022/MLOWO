@@ -1,6 +1,8 @@
 package com.company;
 
 import java.awt.*;
+import java.time.LocalDateTime;
+import java.time.Month;
 import java.util.Date;
 
 public class Main {
@@ -14,20 +16,22 @@ public class Main {
             Bracelet.showAllBracelets();
 
             Client c1 = new Client(
-                    "firstNmae",
+                    "firstName",
                     "lastName",
-                    new Date(),
+                    LocalDateTime.of(2001, Month.FEBRUARY, 8, 13,45),
                     "myEmail@mail.com",
                     "PhoneNumber",
-                    "password"
+                    "password",
+                    "platform 9,75"
             );
             Client c2 = new Client(
-                    "firstNmae",
+                    "firstName",
                     "lastName",
-                    new Date(),
+                    LocalDateTime.of(2000, Month.MARCH, 22, 12, 34),
                     "myEmail@mail.com",
                     "PhoneNumber",
-                    "password"
+                    "password",
+                    "Baker 221B"
             );
 
             c1.addBracelet(b1);

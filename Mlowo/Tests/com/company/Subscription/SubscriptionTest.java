@@ -31,11 +31,11 @@ public class SubscriptionTest {
     public void before(){
         type1ExpireDate = LocalDateTime.of(2021, Month.JANUARY, 29, 0, 0);
         type1StartDate = LocalDateTime.of(2020, Month.DECEMBER, 29, 0, 0);
-                client1 = new Client("John", "Doe", new Date(), "fake@email.com",
-                "+380874715865", "somePassword");
+                client1 = new Client("John", "Doe", LocalDateTime.of(2001, 1, 1, 12, 34), "fake@email.com",
+                "+380874715865", "somePassword", "anywhere");
 
-        client2 = new Client("Jon", "Snow", new Date(), "jon.snow.@you.know.nothing",
-                "+380874715866", "Ghost");
+        client2 = new Client("Jon", "Snow", LocalDateTime.of(1988, 3, 4, 8, 45), "jon.snow.@you.know.nothing",
+                "+380874715866", "Ghost", "night's watch");
         try{
             type1 = Subscription.getInstance(TypeOfSubscription.TYPE1, 150.08,
                     type1StartDate,
