@@ -4,6 +4,7 @@ import com.company.Client;
 import com.company.FirstResponder;
 
 import java.time.LocalDateTime;
+import java.util.Objects;
 
 public class HelpRecord {
     private Outcome outcome;
@@ -43,5 +44,22 @@ public class HelpRecord {
 
     public FirstResponder getFirstResponder() {
         return firstResponder;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof HelpRecord)) return false;
+        HelpRecord that = (HelpRecord) o;
+        return getOutcome() == that.getOutcome() &&
+                Objects.equals(getLocation(), that.getLocation()) &&
+                Objects.equals(getTime(), that.getTime()) &&
+                Objects.equals(getClient(), that.getClient()) &&
+                Objects.equals(getFirstResponder(), that.getFirstResponder());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getOutcome(), getLocation(), getTime(), getClient(), getFirstResponder());
     }
 }
