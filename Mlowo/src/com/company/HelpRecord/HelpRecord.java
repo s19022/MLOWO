@@ -19,6 +19,8 @@ public class HelpRecord {
         this.time = dateTime;
         this.client = client;
         this.firstResponder = firstResponder;
+        client.addHelpRecord(this);
+        firstResponder.addHelpRecord(this);
     }
 
     public Outcome getOutcome(){
