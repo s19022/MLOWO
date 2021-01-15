@@ -1,4 +1,11 @@
 What classes are implemented:
 Bracelet,
+Subscription,
 Client,
+Person,
+HelpRecord,
+
+
+Tests implemented
 Subscription
+HelpRecord
