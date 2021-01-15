@@ -2,6 +2,7 @@ package com.company.Subscription;
 
 import com.company.Client;
 
+import java.time.Duration;
 import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.UUID;
@@ -74,6 +75,11 @@ public class Subscription {
 
     public boolean isExpired(){
         return LocalDateTime.now().isEqual(expireDate) || LocalDateTime.now().isAfter(expireDate);
+    }
+
+    public Duration getMembershidPeriod(){
+        if (isExpired()) return Duration.between(startDate, expireDate);
+        return Duration.between(startDate, LocalDateTime.now());
     }
 
     public static Subscription getInstance(TypeOfSubscription typeOfSubscription, double price,
