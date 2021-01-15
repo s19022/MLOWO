@@ -18,6 +18,7 @@ public class Subscription {
 
     private Subscription(TypeOfSubscription typeOfSubscription, long price, LocalDateTime startDate, LocalDateTime expireDate) {
         subscriptionId = UUID.randomUUID().toString();
+        this.price = price;
         this.typeOfSubscription = typeOfSubscription;
         this.startDate = startDate;
         this.expireDate = expireDate;
@@ -65,6 +66,7 @@ public class Subscription {
             return false;
         }
         this.client = client;
+        subscriptions.put(this, client);
         return true;
     }
 
