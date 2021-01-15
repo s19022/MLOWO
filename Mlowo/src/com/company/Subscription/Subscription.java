@@ -5,6 +5,7 @@ import com.company.Client;
 import java.time.Duration;
 import java.time.LocalDateTime;
 import java.util.HashMap;
+import java.util.Objects;
 import java.util.UUID;
 
 public class Subscription {
@@ -80,6 +81,19 @@ public class Subscription {
     public long getMembershipPeriod(){
         if (isExpired()) return Duration.between(startDate, expireDate).toDays();
         return Duration.between(startDate, LocalDateTime.now()).toDays();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Subscription)) return false;
+        Subscription that = (Subscription) o;
+        return getSubscriptionId().equals(that.getSubscriptionId());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getSubscriptionId());
     }
 
     public static Subscription getInstance(TypeOfSubscription typeOfSubscription, double price,
