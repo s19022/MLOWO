@@ -77,9 +77,9 @@ public class Subscription {
         return LocalDateTime.now().isEqual(expireDate) || LocalDateTime.now().isAfter(expireDate);
     }
 
-    public Duration getMembershidPeriod(){
-        if (isExpired()) return Duration.between(startDate, expireDate);
-        return Duration.between(startDate, LocalDateTime.now());
+    public long getMembershipPeriod(){
+        if (isExpired()) return Duration.between(startDate, expireDate).toDays();
+        return Duration.between(startDate, LocalDateTime.now()).toDays();
     }
 
     public static Subscription getInstance(TypeOfSubscription typeOfSubscription, double price,

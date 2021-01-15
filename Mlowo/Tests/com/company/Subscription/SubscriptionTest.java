@@ -3,7 +3,9 @@ package com.company.Subscription;
 import com.company.Client;
 import org.junit.Assert;
 import org.junit.Before;
+import org.junit.Test;
 
+import java.time.Duration;
 import java.time.LocalDateTime;
 import java.time.Month;
 import java.util.ArrayList;
@@ -19,6 +21,8 @@ public class SubscriptionTest {
 
     LocalDateTime type1ExpireDate;
 
+    LocalDateTime type1StartDate;
+
     Client client1;
     Client client2;
 
@@ -26,15 +30,15 @@ public class SubscriptionTest {
     @Before
     public void before(){
         type1ExpireDate = LocalDateTime.of(2021, Month.JANUARY, 29, 0, 0);
-
-        client1 = new Client("John", "Doe", new Date(), "fake@email.com",
+        type1StartDate = LocalDateTime.of(2020, Month.DECEMBER, 29, 0, 0);
+                client1 = new Client("John", "Doe", new Date(), "fake@email.com",
                 "+380874715865", "somePassword");
 
         client2 = new Client("Jon", "Snow", new Date(), "jon.snow.@you.know.nothing",
                 "+380874715866", "Ghost");
         try{
             type1 = Subscription.getInstance(TypeOfSubscription.TYPE1, 150.08,
-                    LocalDateTime.of(2020, Month.DECEMBER, 29, 0, 0),
+                    type1StartDate,
                     type1ExpireDate
             );
         }catch (SubscriptionInitializationException ex){
@@ -111,5 +115,10 @@ public class SubscriptionTest {
 
         type1.setExpireDate(LocalDateTime.now().minusDays(2));
         assertTrue(type1.isExpired());
+    }
+
+    @Test
+    public void getMembershipPeriod(){
+        assertEquals(Duration.between(type1StartDate, LocalDateTime.now()).toDays(), type1.getMembershipPeriod());
     }
 }
