@@ -1,8 +1,11 @@
 package com.company;
 
+import com.company.HelpRecord.HelpRecord;
+
 import java.time.LocalDateTime;
-import java.util.Date;
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
 import java.util.UUID;
 
 public abstract class Person {
@@ -13,6 +16,8 @@ public abstract class Person {
     private String email;
     private String phoneNumber;
     private String password;
+
+    private Set<HelpRecord> helpRecords = new HashSet<>();
 
     public Person(String firstName, String lastName, LocalDateTime dateOfBirth, String email, String phoneNumber, String password) {
         personId = UUID.randomUUID().toString();
@@ -59,5 +64,9 @@ public abstract class Person {
     @Override
     public int hashCode() {
         return Objects.hash(personId);
+    }
+
+    public synchronized boolean addHelpRecord(HelpRecord helpRecord){
+        return helpRecords.add(helpRecord);
     }
 }
