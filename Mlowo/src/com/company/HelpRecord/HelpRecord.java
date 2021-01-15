@@ -1,4 +1,4 @@
-package com.company;
+package com.company.HelpRecord;
 
 import java.time.LocalDateTime;
 

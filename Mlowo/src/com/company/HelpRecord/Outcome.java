@@ -1,4 +1,4 @@
-package com.company;
+package com.company.HelpRecord;
 
 public enum Outcome {
     POSITIVE,
