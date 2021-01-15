@@ -66,6 +66,7 @@ public class Subscription {
             return false;
         }
         this.client = client;
+        subscriptions.put(this, client);
         return true;
     }
 
