@@ -4,8 +4,12 @@ Subscription,
 Client,
 Person,
 HelpRecord,
+MedicalEquipment,
+MedicalKit
 
 
 Tests implemented
 Subscription
 HelpRecord
+MedicalEquipment
+MedicalKit

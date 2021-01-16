@@ -1,7 +1,7 @@
 package com.company;
 
 public class MedicalEquipment {
-    private int equipmentId;
+    private final int equipmentId;
     private String producer;
 
     public MedicalEquipment(int equipmentId, String producer) {
@@ -14,5 +14,9 @@ public class MedicalEquipment {
 
     public String getProducer() {
         return producer;
+    }
+
+    public void setProducer(String producer) {
+        this.producer = producer;
     }
 }
