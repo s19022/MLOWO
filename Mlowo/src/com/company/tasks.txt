@@ -5,7 +5,8 @@ Client,
 Person,
 HelpRecord,
 MedicalEquipment,
-MedicalKit
+MedicalKit,
+MlowoBike
 
 
 Tests implemented
