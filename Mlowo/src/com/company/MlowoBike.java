@@ -36,10 +36,10 @@ public class MlowoBike {
         return isLocked;
     }
 
-    public void Unlock(){
+    public void unlock(){
         this.isLocked = false;
     }
-    public void Lock(){
+    public void lock(){
         this.isLocked = true;
     }
 }
