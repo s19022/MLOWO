@@ -14,3 +14,4 @@ Subscription
 HelpRecord
 MedicalEquipment
 MedicalKit
+MlowoBike
