@@ -20,7 +20,7 @@ public class BikeStation {
         if (!bike.getLockStatus())
             throw new BikeIsAlreadyUnlockedException("Bike with ID: " + bike.getBikeId() + ", is already unlocked");
 
-        if(!MedicalCard.medicalCards.containsKey(medicalCardId))
+        if(!MedicalCard.contains(medicalCardId))
             throw new BikeDoesNotExistException("There is no bike a lock number " + lockNumber);
 
         bike.setLockStatus(false);
