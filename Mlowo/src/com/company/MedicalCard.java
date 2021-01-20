@@ -17,4 +17,8 @@ public class MedicalCard {
         owner = owner;
         medicalCards.put(medicalCardId, this);
     }
+
+    public static boolean contains(String medicalCardId){
+        return medicalCards.containsKey(medicalCardId);
+    }
 }
