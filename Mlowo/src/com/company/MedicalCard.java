@@ -7,14 +7,14 @@ import java.util.UUID;
 public class MedicalCard {
     private final String medicalCardId;
     private LocalDateTime expirationDate;
-    private String Owner;
+    private String owner;
     public static HashMap<String,MedicalCard> medicalCards = new HashMap<>();
 
 
     public MedicalCard(String medicalCardId, LocalDateTime expirationDate, String owner) {
         this.medicalCardId = UUID.randomUUID().toString();
         this.expirationDate = expirationDate;
-        Owner = owner;
+        owner = owner;
         medicalCards.put(medicalCardId, this);
     }
 }
