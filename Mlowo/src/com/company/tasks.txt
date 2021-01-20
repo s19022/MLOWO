@@ -6,7 +6,9 @@ Person,
 HelpRecord,
 MedicalEquipment,
 MedicalKit,
-MlowoBike
+MlowoBike,
+BikeStation,
+MedicalCard
 
 
 Tests implemented
