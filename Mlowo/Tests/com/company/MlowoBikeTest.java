@@ -39,31 +39,4 @@ public class MlowoBikeTest {
         Assert.assertNotEquals(medicalKit2,bike1.getMedicalKit());
         Assert.assertEquals(medicalKit3,bike3.getMedicalKit());
     }
-    @Test
-    public void getLockStatus(){
-       Assert.assertFalse(bike1.getLockStatus());
-       Assert.assertFalse(bike2.getLockStatus());
-       Assert.assertFalse(bike3.getLockStatus());
-       lock();
-       Assert.assertTrue(bike1.getLockStatus());
-       Assert.assertTrue(bike2.getLockStatus());
-    }
-
-    @Test
-    public void Unlock(){
-        lock();
-        Assert.assertTrue(bike1.getLockStatus());
-        Assert.assertTrue(bike2.getLockStatus());
-        bike1.unlock();
-        bike2.unlock();
-        Assert.assertFalse(bike1.getLockStatus());
-        Assert.assertFalse(bike2.getLockStatus());
-    }
-    @Test
-    public void lock(){
-        bike1.lock();
-        bike2.lock();
-        Assert.assertTrue(bike1.getLockStatus());
-        Assert.assertTrue(bike2.getLockStatus());
-    }
 }

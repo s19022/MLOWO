@@ -32,14 +32,12 @@ public class MlowoBike {
     public String getBikeId() {
         return bikeId;
     }
+
     public boolean getLockStatus(){
         return isLocked;
     }
 
-    public void unlock(){
-        this.isLocked = false;
-    }
-    public void lock(){
-        this.isLocked = true;
+    public void setLockStatus(boolean isLocked){
+        this.isLocked = isLocked;
     }
 }
