@@ -13,35 +13,28 @@ public class BikeStation {
     }
 
     public void unlock(int lockNumber, String medicalCardId) throws BikeDoesNotExistException, BikeIsAlreadyUnlockedException, InvalidCardException {
-        if(bikes[lockNumber] != null) {
-            MlowoBike bike = bikes[lockNumber];
-            if (bike.getLockStatus()) {
-                if(MedicalCard.medicalCards.containsKey(medicalCardId)) {
-                    bike.setLockStatus(false);
-                    bikes[lockNumber] = null;
-                }else{
-                    throw new InvalidCardException("The scanned card is invalid");
-                }
-            }else{
-                throw new BikeIsAlreadyUnlockedException("Bike with ID: " + bike.getBikeId() + ", is already unlocked");
-            }
+        MlowoBike bike = bikes[lockNumber];
+        if(bike == null)
+            throw new InvalidCardException("The scanned card is invalid");
 
-        }else{
+        if (!bike.getLockStatus())
+            throw new BikeIsAlreadyUnlockedException("Bike with ID: " + bike.getBikeId() + ", is already unlocked");
+
+        if(!MedicalCard.medicalCards.containsKey(medicalCardId))
             throw new BikeDoesNotExistException("There is no bike a lock number " + lockNumber);
-        }
+
+        bike.setLockStatus(false);
+        bikes[lockNumber] = null;
     }
 
     public void lock(int lockNumber, MlowoBike bike) throws LockIsAlreadyTakenException, BikeIsAlreadyLockedException {
-        if(bikes[lockNumber] == null) {
-            if (!bike.getLockStatus()) {
-                bike.setLockStatus(true);
-                bikes[lockNumber] = bike;
-            }else{
-                throw new BikeIsAlreadyLockedException("Bike with ID: " + bike.getBikeId() + ", is already locked");
-            }
-
-        }else{
+        if(bikes[lockNumber] != null)
             throw new LockIsAlreadyTakenException("A bike is already locked in lock number " + lockNumber);
-        }
+
+        if (bike.getLockStatus())
+            throw new BikeIsAlreadyLockedException("Bike with ID: " + bike.getBikeId() + ", is already locked");
+
+        bike.setLockStatus(true);
+        bikes[lockNumber] = bike;
     }
 }
