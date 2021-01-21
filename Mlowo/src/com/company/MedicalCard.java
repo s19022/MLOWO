@@ -11,14 +11,22 @@ public class MedicalCard {
     public static HashMap<String,MedicalCard> medicalCards = new HashMap<>();
 
 
-    public MedicalCard(String medicalCardId, LocalDateTime expirationDate, String owner) {
+    public MedicalCard(String medicalCardId,LocalDateTime expirationDate, String owner) {
         this.medicalCardId = UUID.randomUUID().toString();
         this.expirationDate = expirationDate;
-        owner = owner;
+        this.owner=owner;
         medicalCards.put(medicalCardId, this);
     }
 
     public static boolean contains(String medicalCardId){
         return medicalCards.containsKey(medicalCardId);
     }
+
+    public String getowner(){return owner;}
+
+    public LocalDateTime getLGT(){return expirationDate;}
+
+    public String getMedicalCardId(){return medicalCardId;}
+
+
 }
