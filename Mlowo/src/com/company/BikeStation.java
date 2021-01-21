@@ -12,16 +12,16 @@ public class BikeStation {
         this.bikes = new MlowoBike[maxNumberOfBikes];
     }
 
-    public void unlock(int lockNumber, String medicalCardId) throws BikeDoesNotExistException, BikeIsAlreadyUnlockedException, InvalidCardException {
+    public void unlock(int lockNumber, MedicalCard medicalCard) throws BikeDoesNotExistException, BikeIsAlreadyUnlockedException, InvalidCardException {
         MlowoBike bike = bikes[lockNumber];
         if(bike == null)
-            throw new InvalidCardException("The scanned card is invalid");
+            throw new BikeDoesNotExistException("There is no bike a lock number " + lockNumber);
 
         if (!bike.getLockStatus())
             throw new BikeIsAlreadyUnlockedException("Bike with ID: " + bike.getBikeId() + ", is already unlocked");
 
-        if(!MedicalCard.contains(medicalCardId))
-            throw new BikeDoesNotExistException("There is no bike a lock number " + lockNumber);
+        if(!MedicalCard.contains(medicalCard))
+            throw new InvalidCardException("The scanned card is invalid");
 
         bike.setLockStatus(false);
         bikes[lockNumber] = null;

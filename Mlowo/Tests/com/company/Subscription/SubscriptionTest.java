@@ -1,17 +1,12 @@
 package com.company.Subscription;
 
 import com.company.Client;
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
 import java.time.Duration;
 import java.time.LocalDateTime;
 import java.time.Month;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-
 import static junit.framework.TestCase.assertTrue;
 import static org.junit.Assert.*;
 
